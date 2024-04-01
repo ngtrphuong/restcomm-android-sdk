@@ -23,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import io.github.pixee.security.SystemCommand;
 
 import org.restcomm.android.olympus.Util.Utils;
 import org.restcomm.android.sdk.RCClient;
@@ -161,7 +162,7 @@ public class BugReportActivity extends AppCompatActivity implements AdapterView.
    {
       try {
          // retrieve all log entries from logcat in a string builder
-         Process process = Runtime.getRuntime().exec("logcat -d *:V");
+         Process process = SystemCommand.runCommand(Runtime.getRuntime(), "logcat -d *:V");
          BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
          StringBuilder log = new StringBuilder();
