@@ -141,7 +141,7 @@ public class IceServerFetcher {
             else {
                 String result = iceServersJson.getString("s");
                 RCLogger.d(TAG, "Ice Servers response status: " + result);
-                if (!result.equals("ok")) {
+                if (!"ok".equals(result)) {
                     //events.onIceServersError("Ice Servers response error: " + iceServersJson.getString("e"));
                     events.onIceServersError("Ice Servers response error: " + iceServersJson.getString("s"));
                     return;

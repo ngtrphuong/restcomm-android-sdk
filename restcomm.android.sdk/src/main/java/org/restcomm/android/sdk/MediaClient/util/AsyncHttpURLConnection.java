@@ -107,7 +107,7 @@ public class AsyncHttpURLConnection {
       // TODO(glaznev) - query request origin from pref_room_server_url_key preferences.
       connection.addRequestProperty("origin", HTTP_ORIGIN);
       boolean doOutput = false;
-      if (method.equals("POST")) {
+      if ("POST".equals(method)) {
         doOutput = true;
         connection.setDoOutput(true);
         connection.setFixedLengthStreamingMode(postData.length);

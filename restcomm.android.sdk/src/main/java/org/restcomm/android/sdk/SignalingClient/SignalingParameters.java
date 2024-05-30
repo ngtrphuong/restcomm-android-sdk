@@ -150,11 +150,11 @@ public class SignalingParameters {
       Matcher matcher = Pattern.compile("m=audio|m=video|a=(candidate.*)\\r\\n").matcher(sdp.description);
       String collectionState = "none";
       while (matcher.find()) {
-         if (matcher.group(0).equals("m=audio")) {
+         if ("m=audio".equals(matcher.group(0))) {
             collectionState = "audio";
             continue;
          }
-         if (matcher.group(0).equals("m=video")) {
+         if ("m=video".equals(matcher.group(0))) {
             collectionState = "video";
             continue;
          }

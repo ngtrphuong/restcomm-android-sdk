@@ -102,7 +102,7 @@ public class FcmConfigurationClient {
         }
 
         this.pushPath = PUSH_PATH;
-        if (pushDomain.equals("staging.restcomm.com")){
+        if ("staging.restcomm.com".equals(pushDomain)){
             this.pushPath = PUSH_PATH_STAGING;
         }
     }
@@ -606,7 +606,7 @@ public class FcmConfigurationClient {
     private FcmCredentials extractFromJsonObjectCredentials(JSONObject jsonObject, String applicationSid) throws IOException, JSONException{
         String applicationSidServer = jsonObject.getString("ApplicationSid");
         String inputCredentialType = jsonObject.getString("CredentialType");
-        if (applicationSidServer.equals(applicationSid) && inputCredentialType.equals("fcm")){
+        if (applicationSidServer.equals(applicationSid) && "fcm".equals(inputCredentialType)){
             String sid = jsonObject.getString("Sid");
             return new FcmCredentials(sid, applicationSidServer, inputCredentialType);
         }
@@ -639,7 +639,7 @@ public class FcmConfigurationClient {
         String applicationSidServer = jsonObject.getString("ApplicationSid");
         String bindingType = jsonObject.getString("BindingType");
         String identity = jsonObject.getString("Identity");
-        if (applicationSidServer.equals(applicationSid) && bindingType.equals("fcm") && identity.equals(clientSid) ){
+        if (applicationSidServer.equals(applicationSid) && "fcm".equals(bindingType) && identity.equals(clientSid) ){
             String sid = jsonObject.getString("Sid");
             identity = jsonObject.getString("Identity");
             String address = jsonObject.getString("Address");

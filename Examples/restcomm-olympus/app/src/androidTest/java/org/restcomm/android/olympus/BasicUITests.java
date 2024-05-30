@@ -410,14 +410,14 @@ public class BasicUITests {
         params.put("From", "alice");
 
         String url = "";
-        if (type.equals("call")) {
+        if ("call".equals(type)) {
             params.put("To", "client:" + BuildConfig.TEST_RESTCOMM_LOGIN);
             params.put("Url", "https://cloud.restcomm.com/restcomm/demos/hello-world.xml");
             url = "https://" + BuildConfig.TEST_RESTCOMM_ACCOUNT_SID + ":" + BuildConfig.TEST_RESTCOMM_AUTH_TOKEN +
                     "@cloud.restcomm.com/restcomm/2012-04-24/Accounts/" + BuildConfig.TEST_RESTCOMM_ACCOUNT_SID +
                     "/Calls.json";
         }
-        else if (type.equals("message")) {
+        else if ("message".equals(type)) {
             // due to a bug in Restcomm (https://github.com/RestComm/Restcomm-Connect/issues/2108) To needs to have the 'client:' part removed
             params.put("To", BuildConfig.TEST_RESTCOMM_LOGIN);
             params.put("Body", smsText);

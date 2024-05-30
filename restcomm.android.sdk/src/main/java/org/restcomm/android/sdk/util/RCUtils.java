@@ -108,7 +108,7 @@ public class RCUtils {
                 List<Map<String, String>> iceServers = (List<Map<String, String>>)parameters.get(RCDevice.ParameterKeys.MEDIA_ICE_SERVERS);
                 for (Map<String, String> iceServer : iceServers) {
                     if (!iceServer.containsKey(RCConnection.IceServersKeys.ICE_SERVER_URL) ||
-                            iceServer.get(RCConnection.IceServersKeys.ICE_SERVER_URL).equals("")) {
+                            "".equals(iceServer.get(RCConnection.IceServersKeys.ICE_SERVER_URL))) {
                         throw new RCException(RCClient.ErrorCodes.ERROR_DEVICE_INVALID_CUSTOM_DISCOVERY);
                     }
                 }

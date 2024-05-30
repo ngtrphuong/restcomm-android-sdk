@@ -858,7 +858,7 @@ public class CallActivity extends AppCompatActivity implements RCConnectionListe
 
     @Override
     public void onFragmentInteraction(String action) {
-        if (action.equals("cancel")) {
+        if ("cancel".equals(action)) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.hide(keypadFragment);
             ft.commit();
@@ -886,37 +886,37 @@ public class CallActivity extends AppCompatActivity implements RCConnectionListe
     // Various conversion helpers
     private RCConnection.VideoResolution resolutionString2Enum(String resolution)
     {
-        if (resolution.equals("160 x 120")) {
+        if ("160 x 120".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_QQVGA_160x120;
         }
-        else if (resolution.equals("176 x 144")) {
+        else if ("176 x 144".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_QCIF_176x144;
         }
-        else if (resolution.equals("320 x 240")) {
+        else if ("320 x 240".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_QVGA_320x240;
         }
-        else if (resolution.equals("352 x 288")) {
+        else if ("352 x 288".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_CIF_352x288;
         }
-        else if (resolution.equals("640 x 360")) {
+        else if ("640 x 360".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_nHD_640x360;
         }
-        else if (resolution.equals("640 x 480")) {
+        else if ("640 x 480".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_VGA_640x480;
         }
-        else if (resolution.equals("800 x 600")) {
+        else if ("800 x 600".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_SVGA_800x600;
         }
-        else if (resolution.equals("1280 x 720")) {
+        else if ("1280 x 720".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_HD_1280x720;
         }
-        else if (resolution.equals("1600 x 1200")) {
+        else if ("1600 x 1200".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_UXGA_1600x1200;
         }
-        else if (resolution.equals("1920 x 1080")) {
+        else if ("1920 x 1080".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_FHD_1920x1080;
         }
-        else if (resolution.equals("3840 x 2160")) {
+        else if ("3840 x 2160".equals(resolution)) {
             return RCConnection.VideoResolution.RESOLUTION_UHD_3840x2160;
         }
         else {
@@ -926,10 +926,10 @@ public class CallActivity extends AppCompatActivity implements RCConnectionListe
 
     private RCConnection.VideoFrameRate frameRateString2Enum(String frameRate)
     {
-        if (frameRate.equals("15 fps")) {
+        if ("15 fps".equals(frameRate)) {
             return RCConnection.VideoFrameRate.FPS_15;
         }
-        else if (frameRate.equals("30 fps")) {
+        else if ("30 fps".equals(frameRate)) {
             return RCConnection.VideoFrameRate.FPS_30;
         }
         else {
@@ -939,10 +939,10 @@ public class CallActivity extends AppCompatActivity implements RCConnectionListe
 
     private RCConnection.AudioCodec audioCodecString2Enum(String audioCodec)
     {
-        if (audioCodec.equals("OPUS")) {
+        if ("OPUS".equals(audioCodec)) {
             return RCConnection.AudioCodec.AUDIO_CODEC_OPUS;
         }
-        else if (audioCodec.equals("ISAC")) {
+        else if ("ISAC".equals(audioCodec)) {
             return RCConnection.AudioCodec.AUDIO_CODEC_ISAC;
         }
         else {
@@ -952,13 +952,13 @@ public class CallActivity extends AppCompatActivity implements RCConnectionListe
 
     private RCConnection.VideoCodec videoCodecString2Enum(String videoCodec)
     {
-        if (videoCodec.equals("VP8")) {
+        if ("VP8".equals(videoCodec)) {
             return RCConnection.VideoCodec.VIDEO_CODEC_VP8;
         }
-        else if (videoCodec.equals("VP9")) {
+        else if ("VP9".equals(videoCodec)) {
             return RCConnection.VideoCodec.VIDEO_CODEC_VP9;
         }
-        else if (videoCodec.equals("H264")) {
+        else if ("H264".equals(videoCodec)) {
             return RCConnection.VideoCodec.VIDEO_CODEC_H264;
         }
         else {

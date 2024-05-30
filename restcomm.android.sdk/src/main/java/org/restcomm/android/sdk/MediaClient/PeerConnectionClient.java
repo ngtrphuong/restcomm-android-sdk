@@ -1143,7 +1143,7 @@ public class PeerConnectionClient {
     for (RtpSender sender : peerConnection.getSenders()) {
       if (sender.track() != null) {
         String trackType = sender.track().kind();
-        if (trackType.equals(VIDEO_TRACK_TYPE)) {
+        if (VIDEO_TRACK_TYPE.equals(trackType)) {
           Log.d(TAG, "Found video sender.");
           localVideoSender = sender;
         }

@@ -2088,7 +2088,7 @@ public class RCConnection implements PeerConnectionClient.PeerConnectionEvents, 
          {
             RCLogger.e(TAG, "PeerConnection error: " + description);
             String reason = null;
-            if (description.equals("ICE connection failed")) {
+            if ("ICE connection failed".equals(description)) {
                // in cases where this is the result of IceConnectionState.FAILED, which means that media connectivity is lost we need to add proper reason header
                reason = "Connectivity-Drop";
             }
@@ -2405,7 +2405,7 @@ public class RCConnection implements PeerConnectionClient.PeerConnectionEvents, 
       }
 
       // if state is connected check if we have Call-Sid custom header and is so send over to android-qos
-      if (state.equals("connected") && callParams.containsKey(ParameterKeys.CONNECTION_CUSTOM_INCOMING_SIP_HEADERS)) {
+      if ("connected".equals(state) && callParams.containsKey(ParameterKeys.CONNECTION_CUSTOM_INCOMING_SIP_HEADERS)) {
          HashMap<String, String> customHeaders = (HashMap<String, String>) callParams.get(ParameterKeys.CONNECTION_CUSTOM_INCOMING_SIP_HEADERS);
          if (customHeaders.containsKey(ParameterKeys.CONNECTION_SIP_HEADER_KEY_CALL_SID)) {
             intent.putExtra("CALLSID", customHeaders.get(ParameterKeys.CONNECTION_SIP_HEADER_KEY_CALL_SID));

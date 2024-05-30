@@ -431,7 +431,7 @@ public class RCDevice extends Service implements SignalingClient.SignalingClient
          //check is intent is from push notifications,
          //if it is, check is service initialized,
          //if its not initialize it
-         if (intentAction.equals(ACTION_FCM)){
+         if (ACTION_FCM.equals(intentAction)){
             setLogLevel(Log.VERBOSE);
 
             //if service is attached we dont need to run foreground
