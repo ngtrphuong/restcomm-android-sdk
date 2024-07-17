@@ -23,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import io.github.pixee.security.BoundedLineReader;
 
 import org.restcomm.android.olympus.Util.Utils;
 import org.restcomm.android.sdk.RCClient;
@@ -166,7 +167,7 @@ public class BugReportActivity extends AppCompatActivity implements AdapterView.
 
          StringBuilder log = new StringBuilder();
          String line;
-         while ((line = bufferedReader.readLine()) != null) {
+         while ((line = BoundedLineReader.readLine(bufferedReader, 5_000_000)) != null) {
             log.append(line);
             log.append(System.getProperty("line.separator"));
          }
