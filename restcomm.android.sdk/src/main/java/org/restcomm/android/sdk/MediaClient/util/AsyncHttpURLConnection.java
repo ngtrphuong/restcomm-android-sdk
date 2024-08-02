@@ -28,6 +28,8 @@
 package org.restcomm.android.sdk.MediaClient.util;
 
 import android.util.Base64;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 
 import org.restcomm.android.sdk.RCDevice;
 
@@ -97,7 +99,7 @@ public class AsyncHttpURLConnection {
       */
 
       HttpURLConnection connection =
-        (HttpURLConnection) new URL(url).openConnection();
+        (HttpURLConnection) Urls.create(url, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS).openConnection();
       byte[] postData = new byte[0];
       connection.setRequestMethod(method);
       connection.setUseCaches(false);
