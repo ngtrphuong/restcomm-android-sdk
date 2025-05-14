@@ -22,6 +22,8 @@
 
 package org.restcomm.android.sdk.fcm;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -108,7 +110,7 @@ public class FcmConfigurationClient {
     }
 
     private HttpURLConnection createUrlRequestWithUrl(String urlString) throws Exception{
-        URL url = new URL(urlString);
+        URL url = Urls.create(urlString, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.setRequestProperty("Content-Type", "application/json");
         String authorisationString = Base64.encodeToString((accountEmail + ":" + password).getBytes(), Base64.DEFAULT);
